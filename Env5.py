@@ -1,0 +1,20 @@
+import sys
+from PySide6.QtWidgets import *
+from PySide6.QtCore import QUrl
+from PySide6.QtWebEngineWidgets import QWebEngineView
+
+class myWeb(QWebEngineView):
+    def __init__(self):
+        super().__init__()
+        # ดึงหน้าเว็บเพจมาแสดง
+        self.load(QUrl("http://www.google.co.th")) 
+        self.resize(1024, 768) # เพิ่มขนาดหน้าต่างให้เห็นชัดเจน
+        self.setWindowTitle("My Web Browser")
+
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    
+    web = myWeb()
+    web.show()
+    
+    sys.exit(app.exec())
